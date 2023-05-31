@@ -4,14 +4,14 @@
 
 To download the dataset, please follow the link https://www.kaggle.com/competitions/airbus-ship-detection/data and extract the archive into the "data" folder. Once done, you can run the "train_and_analysis.ipynb" file.
 
-#Idea
+# Idea
 The main challenges of my solution were time and class imbalance. In our dataset, ships occupied a small percentage of the area, and many images didn't contain any ships at all. To expedite the training process, I adopted the following strategy. I divided our images into 9 equal squares and trained the model only on the data (tensors with dimensions of 256x256x3) where the corresponding masks had values. By doing so, we reduced the class imbalance and significantly accelerated the training process.
-#Model
+# Model
 You can look at my model using model.summary() . Main components is:
-##conv block: 
+## conv block: 
 A convolutional block composed of two convolutional layers with batch normalization and ReLU activation. It takes input inputs, applies convolutions, and returns the output.
 
-##upconv block: 
+## upconv block: 
 An upsampling convolutional block that combines the upsampled features with skip connections from the encoder path. It performs transposed convolutions, concatenates the features, applies convolutions, and returns the output.
 
 ## attention gate: 
