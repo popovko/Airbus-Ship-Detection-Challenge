@@ -119,4 +119,5 @@ def create_val_batches(df, batch_size=1):
     val_ds = create_dataset(df)
     val_images = val_ds.map(get_image, num_parallel_calls=tf.data.AUTOTUNE)
     val_batches = val_images.batch(batch_size)
+    
     return val_batches
